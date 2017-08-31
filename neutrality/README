@@ -1,0 +1,24 @@
+ROOT/neutrality
+
+DIRECTORIES :
+
+ .
+ └── results	: results for this part
+
+FILES :
+
+- neutrality.c		: performs a neutrality test for the given
+			  key and IV models.
+
+- neutralihash.py	: reduce the result files'names so it can be accepted
+			  by my computer. No joke.
+
+- neutralipress.py	: reduce the size of result files
+
+- neutralisee.py	: give a better view of the results in the given file
+
+Note	: the files'names are all "hashed" through neutralihash.py.
+	  to display them, you can use the ls function written in the result
+	  directory.
+	  This should display the name as follow :
+	  <IV model>_<key model>_<rounds>.kw

@@ -1,0 +1,28 @@
+ROOT/satsolver
+
+DIRECTORIES:
+
+.
+└── results	: results for this part
+
+FILES:
+
+- CNFmaker.py	: classes used to compute a CNF file
+
+- satrivium.py	: file transforming a Trivium's keystream from IV into a
+		  SAT instance
+
+- donau		: Riss Coprocessor's script a bit reinterpreted from the one from
+		  Norbert Manthey.
+
+- filetester.sh	: file used for tests in the result part
+
+
+Note	: results obtained in the report have been gathered using the
+	  following options :
+
+python satrivium.py -w <W> $(bash ../utils/nrandomtest.sh <S> <N>) > test1.cnf ; time ./donau --virgin --satsolver plingeling test1.cnf -enabled_cp3 -cp3_stats -no-cp3_limited -dense -all_strength_res=3 -subsimp -up -xor -xorMaxSize=5 -ee -laEEl -bve -no-bve_gates -no-bve_strength -fm -cp3_ptechs=[svxf]+ > report.data ; python satrivium.py -r report.data > yek.data ; cat key.data yek.data
+
+with <W> : number of warmup rounds
+     <S> : total size of the keystream (with warmup)
+     <N> : number of keystream to generate

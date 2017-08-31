@@ -1,0 +1,20 @@
+ROOT
+
+DIRECTORIES:
+
+.
+├── cubatak	: part for cube attacks
+├── include	: lair of header files
+├── lib		: lair of archives
+├── neutrality	: part for neutrality tests
+├── satsolver	: part for SAT-solvers
+├── trivium	: Trivium's implementations
+└── utils	: some useful scripts/programs
+
+FILES:
+
+- init	: script which create the file config.mk, essential for all
+	  subdirectories'Makefiles. The created file will contain the path for
+	  this project's root.
+	  Typing `make` here autmatically use this script.
+	  

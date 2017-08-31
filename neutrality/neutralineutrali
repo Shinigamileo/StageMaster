@@ -1,0 +1,71 @@
+#!/bin/bash
+
+X=c00c00c00c00c00c00c00c00c00c00c00c00c00c00c00c00c00c00c00c00c00c00c00c00n00n00n0
+K=r00r00r00r00r00r00r00r00r00r00r00r00r00r00r00r00r00r00r00r00r00r00010r00r00r00r0
+R=1200
+N=100
+T=100
+P=0
+
+moreopts=1
+
+while (( $moreopts )); do
+    if [[ $1 =~ ^-- ]]; then
+	if [ "$1" = "--noweak" ]; then
+	    K="rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
+	    shift
+	fi
+    elif [ "$1" = "-x" ]; then
+	 X="$2"
+	 shift 2
+    elif [ "$1" = "-k" ]; then
+	 K="$2"
+	 shift 2
+    elif [ "$1" = "-r" ]; then
+	 R="$2"
+	 shift 2
+    elif [ "$1" = "-n" ]; then
+	 N="$2"
+	 shift 2
+    elif [ "$1" = "-t" ]; then
+	 T="$2"
+	 shift 2
+    elif [ "$1" = "-p" ]; then
+	 P=$(( $2 - 1 ))
+	 shift 2
+    else
+	moreopts=0
+    fi
+done
+
+title="$X"_"$K"_"$R".kw
+seeds=($(shuf -i 000000000-999999999 -n $P))
+declare -a IDs
+
+# trigger if user aborts : kill all child processes and fuse results
+trap ending EXIT
+trap ctrl_c INT
+
+function ctrl_c(){
+    # for ID in ${IDs[@]}; do
+    # 	kill $ID
+    # done
+    pkill -P $$
+    ending
+}
+
+function ending() {
+    for p in $(seq $P); do
+	tmp_title="$title"."$p"
+	cat $tmp_title >> $title
+	rm $tmp_title
+    done
+}
+
+../neutrality -x $X -k $K -r $R -t $T -n $N -o "$title"&
+for p in $(seq $P); do
+    tmp_title="$title"."$p"
+    touch $tmp_title
+    ../neutrality -x $X -k $K -r $R -t $T -n $N -o $tmp_title --seed ${seeds[$(( $p - 1 ))]} &
+done
+wait

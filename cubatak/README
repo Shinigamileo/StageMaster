@@ -1,0 +1,6 @@
+ROOT/cubatak
+
+FILES:
+
+- cubatak.c	: do a cube attack on Trivium, based on Dinur and Shamir's
+		  attacks.
