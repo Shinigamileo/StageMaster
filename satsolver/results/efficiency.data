@@ -1,0 +1,69 @@
+[1;4;31mI) finding the best length[0m
+
+[1mwarmup : 0[0m
+50 : 0%
+75 : 0%
+87 : 100.00%
+81 : 100.00%
+78 : 0%
+79 : 0%
+[1m=> best size : 81[0m
+
+[1mwarmup : 50[0m
+129 : 11.80%
+154 : 100.00%
+142 : 100.00%
+136 : 97.20%
+139 : 100.00%
+138 : 100.00%
+[1m=> best size : 138[0m
+
+[1mwarmup : 100[0m
+188 : 99.80%
+213 : 100.00%
+201 : 100.00%
+195 : 100.00%
+192 : 99.80%
+193 : 100.00%
+[1m=> best size : 193[0m
+
+[1mwarmup : 150[0m
+Too long !
+
+[1;4;31mII) finding the best solver[0m
+
+[1mSAT-solver : lingeling[0m
+0 : .065 s
+50 : .120 s
+100 : 1.650 s
+
+[1mSAT-solver : plingeling[0m
+0 : .066 s
+50 : .103 s
+100 : .757 s
+
+[1mSAT-solver : treengeling[0m
+0 : .066 s
+50 : .126 s
+100 : 1.274 s
+
+[1mSAT-solver : glucose -model[0m
+0 : .065 s
+50 : .093 s
+100 : 2.224 s
+
+[1mSAT-solver : riss[0m
+0 : .067 s
+50 : .095 s
+100 : 2.545 s
+
+[1mSAT-solver : cryptominisat5[0m
+0 : .068 s
+50 : .102 s
+100 : 2.749 s
+
+[1mSAT-solver : cryptominisat5 'x'[0m
+0 : .039 s
+50 : .059 s
+100 : 2.755 s
+

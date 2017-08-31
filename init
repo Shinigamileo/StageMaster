@@ -1,0 +1,16 @@
+#!/bin/bash
+
+file=config.mk
+echo "#########################"                                   > $file
+echo "#                       #"                                  >> $file
+echo "#         DIRS          #"                                  >> $file
+echo "#                       #"                                  >> $file
+echo "#########################"                                  >> $file
+echo ""                                                           >> $file
+echo "ROOT  := $(pwd)"                                            >> $file
+echo ""                                                           >> $file
+echo "INC := \$(ROOT)/include"                                    >> $file
+echo "LIB := \$(ROOT)/lib"                                        >> $file
+echo ""                                                           >> $file
+echo ""                                                           >> $file
+echo "include \$(INC)/ansi.mk"                                    >> $file
