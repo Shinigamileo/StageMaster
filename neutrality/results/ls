@@ -5,4 +5,4 @@ if [ "x$@" == "x" ]; then
     arg=*.kw
 fi
 
-for i in $(ls $arg); do python ../neutralipress.py $i; done
+for i in $(ls $arg); do python ../neutralihash.py $i; done

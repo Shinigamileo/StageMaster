@@ -19,7 +19,7 @@ X2bounds[  "1%"] =  6.635
 X2bounds["0.1%"] = 10.828
 
 def usage(state):
-    if state:
+    if not state:
         print("PYTHON " + sys.argv[0] + " [OPTIONS] FILE")
         print("")
         print(u" -h       : displays this help")

@@ -47,4 +47,4 @@ def neutralihash(name):
         return kpart + "_" + xpart + name[161:]
 
 if __name__ == "__main__":
-    print neutralipress(sys.argv[1])
+    print neutralihash(sys.argv[1])
